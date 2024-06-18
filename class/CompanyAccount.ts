@@ -5,11 +5,18 @@ export class CompanyAccount extends DioAccount {
     super(name, accountNumber);
   }
 
-  getLoan = (): void => {
-    console.log("Você pegou um emprestimo!!");
-  };
-
-  deposit = (): number => {
-    return 2;
+  getLoan = (loan: number): void => {
+    if (this.validateStatus()) {
+      let balance = this.getBalance();
+      balance += loan;
+      console.log(
+        "Você realizou um emprestimo de R$ " +
+          loan +
+          "\nE agora seu saldo atual é de R$ " +
+          balance
+      );
+    } else {
+      console.log("Você não tem permissão para realizar emprestimos");
+    }
   };
 }
