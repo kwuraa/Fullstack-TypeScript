@@ -1,37 +1,15 @@
-class Account {
-  name: string;
-  accountNumber: number;
-  balance = 0;
+import { PeopleAccount } from "./class/PeopleAccount";
+import { CompanyAccount } from "./class/CompanyAccount";
 
-  constructor(name: string, accountNumber: number) {
-    this.name = name;
-    this.accountNumber = accountNumber;
-  }
+const peopleAccount: PeopleAccount = new PeopleAccount(
+  "Camila",
+  12312312309,
+  213
+);
 
-  deposit = () => {
-    console.log("você depositou!!");
-  };
+console.log(peopleAccount);
 
-  withdraw = () => {
-    console.log("você sacou!!");
-  };
+peopleAccount.deposit();
 
-  getValue = () => {
-    console.log(this.balance);
-  };
-}
-
-class peopleAccount extends Account {
-  doc_id: number;
-
-  constructor(name: string, doc_id: number, accountNumber: number) {
-    super(name, accountNumber);
-    this.doc_id = doc_id;
-  }
-}
-
-const adminAccount: Account = new Account("Matheus", 87654321);
-console.log(adminAccount);
-
-const account: Account = new Account("Camila", 12345678);
-console.log(account);
+const companyAccount: CompanyAccount = new CompanyAccount("Matheus", 123);
+companyAccount.deposit();
